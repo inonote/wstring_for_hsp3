@@ -25,9 +25,9 @@ MessageBoxW hwnd, wsc_str(wbuf), 0, 0
 
 //ファイルに保存
 new_wstring wbuf2, "UTF-16LEのテキスト。"
-//BOM追加
+//先頭にBOM追加
 bom = 0xFEFF
-wsinsertv wbuf2, 0, bom, 0, 1 // wbufに格納
+wsinsertv wbuf2, 0, bom, 0, 1
 pData = wsdata(wbuf2) //バッファへのポインタを取得
 size = wssize(wbuf2)*2 //バッファサイズを取得
 dupptr sbuf, pData, size, 2 //バッファにアクセスできるようにする
