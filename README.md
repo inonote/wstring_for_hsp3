@@ -1,6 +1,6 @@
 # wstring_for_hsp3 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/inonote/wstring_for_hsp3/blob/master/LICENSE)  
-HSP3でUTF-16を扱うためのモジュール。  
+HSP3でUTF-16文字列を扱うためのモジュール。  
 Shift_JISやUTF-8とは違い、良く使われるU+9999以下の文字であれば固定バイト長ですので、文字列の扱いが楽になります。
 
 ## 特徴
