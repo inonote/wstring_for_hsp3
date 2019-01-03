@@ -22,8 +22,13 @@
 ●関数・命令一覧
 new_wstring var m, str s
 	wstring を作成する。
+	※作成したものは、プログラム終了時に自動で破棄されます。
 	var	m	格納先
 	str	s	初期文字列(省略時、空文字列)
+
+del_wstring var m
+	wstring を破棄する。
+	var	m	wstring
 	
 wsbegin() 		文字列先頭のポインタを返す｡
 wsend()			文字列末尾の次のポインタを返す。
