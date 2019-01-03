@@ -1,24 +1,12 @@
 /*
 ############################################################
-					wstring for HSP3
+				wstring for HSP3 v1.0 (2019/01/03)
 					(c) 2019 inonote
 ############################################################
-●このモジュールについて
-	　HSPでUTF-16を扱うことができるようになるモジュールです。
-	C++の標準ライブラリの std::wstring に近くなるように開発
-	したため、あまり使い勝手は変わりません。
+GitHub : https://github.com/inonote/wstring_for_hsp3
+Twitter : https://twitter.com/inonote
+HP : https://inonote.github.io
 
-●特徴
-	・std::wstring に近い関数、命令。
-	・ヌル文字を含む文字列を扱うことが可能。
-	・文字列操作命令はANSI文字列にも対応。(内部でUTF-16LEに
-	　変換されます。)
-
-●_STRING_EXCEPTIONマクロについて
-	　_STRING_EXCEPTIONの定義を追加することで、メモリの確保
-	に失敗したときや、メモリ範囲外にアクセスしようとしたとき
-	にHSPのシステムエラーを発生させる機能が有効になります。
-	
 ●関数・命令一覧
 new_wstring var m, str s
 	wstring を作成する。
