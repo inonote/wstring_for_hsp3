@@ -11,9 +11,8 @@
 ●特徴
 	・std::wstring に近い関数、命令。
 	・ヌル文字を含む文字列を扱うことが可能。
-	・文字列操作命令はANSI文字列にも対応。(内部でUTF-16に変
-	　換されます。)
-	・
+	・文字列操作命令はANSI文字列にも対応。(内部でUTF-16LEに
+	　変換されます。)
 
 ●_STRING_EXCEPTIONマクロについて
 	　_STRING_EXCEPTIONの定義を追加することで、メモリの確保
@@ -67,7 +66,7 @@ wsinsert [int po2], *** __p, [int po], [int n]
 
 wsappend *** __p, [int po], [int n]
 	末尾に文字列を挿入する。
-	***	__p	 - 挿入する文字列へのポインタ (wsappend)
+	***	__p	- 挿入する文字列へのポインタ (wsappend)
 			- 挿入する文字列が格納された変数 (wsappendv)
 			- 挿入する wstring (wsappendm)
 			- 挿入するANSI文字列が格納された変数 (wsappendA)
@@ -83,7 +82,7 @@ wsreplace int po1, int n1, *** __p, int po2, int n2
 	文字列の一部を置き換える。
 	int	po1	置き換える位置
 	int	n1	置き換える文字数
-	***	__p	 - 置き換える文字列へのポインタ (wsreplace)
+	***	__p	- 置き換える文字列へのポインタ (wsreplace)
 			- 置き換える文字列が格納された変数 (wsreplacev)
 			- 置き換える文字列が格納された wstring (wsreplacem)
 			- 置き換えるANSI文字列が格納された変数 (wsreplaceA)
@@ -103,7 +102,7 @@ wscompare(*** __p)
 
 	返却値	this >  __p	正
 			this == __p	0
-			this <= __p	負
+			this <  __p	負
 
 wscopy *** __p
 	文字列をコピーする。
