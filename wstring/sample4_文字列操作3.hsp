@@ -1,0 +1,25 @@
+// sample4_文字列操作3.hsp
+
+#include "wstring.as"
+#include "user32.as"
+
+new_wstring wstr, "Unicode文字列"
+new_wstring caption, "タイトル"
+
+//文字列を削除する
+wserase wstr, 0, 3 //「Uni」を取り除く
+MessageBoxW hwnd, wsc_str(wstr), wsc_str(caption), 0
+
+//文字列を置き換える
+wsreplaceA wstr, 0, 4, "UNICODE" //「code」を「UNICODE」に置き換える
+MessageBoxW hwnd, wsc_str(wstr), wsc_str(caption), 0
+
+//文字列の長さの調整
+wsresize wstr, wslength(wstr)+2, '!'//広げて、余りは「!」で埋める
+MessageBoxW hwnd, wsc_str(wstr), wsc_str(caption), 0
+
+//wstring同士の交換
+wsswap wstr, caption
+MessageBoxW hwnd, wsc_str(wstr), wsc_str(caption), 0
+
+end

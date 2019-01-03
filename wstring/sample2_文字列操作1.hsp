@@ -1,0 +1,18 @@
+// sample2_文字列操作1.hsp
+
+#include "wstring.as"
+#include "user32.as"
+
+new_wstring wstr, "Unicode文字列"
+new_wstring caption, "タイトル"
+
+//末尾に文字列追加
+wsappendA wstr, "テスト～"
+
+//指定した位置に文字列追加
+wsinsertA wstr, 0, "これは"	//先頭に追加
+wsinsertA wstr, 13, "の"	//13文字目に追加
+
+MessageBoxW hwnd, wsc_str(wstr), wsc_str(caption), 0
+
+end

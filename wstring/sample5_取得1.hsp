@@ -1,0 +1,26 @@
+// sample5_取得1.hsp
+
+#include "wstring.as"
+#include "user32.as"
+
+new_wstring wstr, "Hello, world. こんにちは世界。"
+
+//wstringから文字列をコピーしてShift_JISに変換
+sdim wbuf, wssize(wstr)*2 + 2 //null文字分を追加してメモリ確保
+wscopyv wstr, wbuf, varsize(wstr) //文字列をコピー
+buf = cnvwtos(wbuf)
+mes buf
+mes
+
+//文字列の長さを取得
+mes "文字列の長さ : " + wslength(wstr)
+mes
+
+//メモリの情報を取得
+mes "確保されているメモリ : "+ wscapacity(wstr)
+mes "確保可能なメモリ : "+ wsmaxsize(wstr)
+
+wsclear wstr //文字を全消去
+mes "全消去後の確保されているメモリ : "+ wscapacity(wstr)
+wsshrink_to_fit wstr //メモリサイズを切り詰める
+mes "メモリサイズ調整後の確保されているメモリ : "+ wscapacity(wstr)

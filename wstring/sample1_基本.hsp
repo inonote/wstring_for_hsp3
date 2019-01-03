@@ -1,0 +1,12 @@
+// sample1_基本.hsp
+
+#include "wstring.as"
+#include "user32.as"
+
+new_wstring wstr, "Unicode文字列"
+new_wstring caption, "タイトル"
+
+//Unicode版MessageBox関数でUnicode文字列を表示してみる
+MessageBoxW hwnd, wsc_str(wstr), wsc_str(caption), 0
+
+end

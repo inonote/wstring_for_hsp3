@@ -1,0 +1,18 @@
+// sample6_取得2.hsp
+
+#include "wstring.as"
+#include "user32.as"
+
+new_wstring wstr, "Hello, world."
+
+//4番目の文字を取得
+mes strf("%c", wsat(wstr, 4))
+
+//「wor」の位置を検索
+mes "「wor」 : " + wsfindA(wstr, "wor")
+
+//「Hello,」より後の「l」の位置を検索
+mes "「Hello,」より後の「l」 : "+wsfindA(wstr, "l", 6)
+
+//「Hello,」より後の「Hello,」各文字の内どれかがヒットする場所を探す
+mes "「Hello,」より後の「Hello,」各文字 : "+wsfind_first_ofA(wstr, "Hello,", 6)

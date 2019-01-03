@@ -1,0 +1,36 @@
+// sample7_ファイル入出力.hsp
+
+#include "wstring.as"
+#include "user32.as"
+
+new_wstring wbuf
+
+//ファイルから読み込み
+fname = "sample_text1.txt"
+exist fname: size = strsize
+if (size == -1): dialog "ファイルがない": end
+sdim lbuf, size
+bload fname, lbuf, size, 0
+
+offset = 0
+//念のためBOM(バイトオーダーマーク)の確認
+if (wpeek(lbuf, 0) == 0xFFFE){ // UTF-16BE
+	dialog "UTF-16LEではない": end
+}else:if (wpeek(lbuf, 0) == 0xFEFF){ // UTF-16LE
+	offset = 1 //BOM分だけずらす
+}
+wsappendv wbuf, lbuf, offset, size // wbufに格納
+
+MessageBoxW hwnd, wsc_str(wbuf), 0, 0
+
+//ファイルに保存
+new_wstring wbuf2, "UTF-16LEのテキスト。"
+//BOM追加
+bom = 0xFEFF
+wsinsertv wbuf2, 0, bom, 0, 1 // wbufに格納
+pData = wsdata(wbuf2) //バッファへのポインタを取得
+size = wssize(wbuf2)*2 //バッファサイズを取得
+dupptr sbuf, pData, size, 2 //バッファにアクセスできるようにする
+bsave "sample_text2.txt", sbuf, size
+
+mes "sample_text2.txt に保存しました"
