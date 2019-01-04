@@ -19,7 +19,7 @@ if (wpeek(lbuf, 0) == 0xFFFE){ // UTF-16BE
 }else:if (wpeek(lbuf, 0) == 0xFEFF){ // UTF-16LE
 	offset = 1 //BOM•ª‚¾‚¯‚¸‚ç‚·
 }
-wsappendv wbuf, lbuf, offset, size // wbuf‚ÉŠi”[
+wsappendv wbuf, lbuf, offset, size - offset// wbuf‚ÉŠi”[
 
 MessageBoxW hwnd, wsc_str(wbuf), 0, 0
 

@@ -8,7 +8,7 @@ new_wstring caption, "タイトル"
 
 //バイト列で文字列を追加
 //※Shift_JISでは表現できない文字も扱えるようになります。
-dim buf, 4
+dim buf, 5
 buf(0) = 0x306096EA // だ 雪
 buf(1) = 0x307E308B // ま る
 buf(2) = 0x7D75306E // 絵 の
